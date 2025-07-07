@@ -122,10 +122,10 @@ samtools view -bS ../results/Cterm/Bowtie2_Mapping/Cterm_bowtie2_mapped.sam | sa
 
 ## Clean the bowtie2 alignment files
 # Arg1 is the input BAM file containing sorted bowtie2 alignments. Arg2 is the terminus of the sample
-python3.10 subscripts/clean_Bowtie_alignments.py ../results/Nterm/Bowtie2_Mapping/Nterm_bowtie2_mapped_sorted.bam Nterm
+python3.10 ./subscripts/clean_Bowtie_alignments.py ../results/Nterm/Bowtie2_Mapping/Nterm_bowtie2_mapped_sorted.bam Nterm
 
 ## Find the reads that are on-target with sgRNA library
-python3.10 check_on_target.py ../results/Nterm/results/Nterm_mapped_clean.csv ../data/sgRNA_library/NTERM-LIBRARY-TABLE.tsv Nterm
+python3.10 ./subscripts/check_on_target.py ../results/Nterm/results/Nterm_mapped_clean.csv ../data/sgRNA_library/NTERM-LIBRARY-TABLE.tsv Nterm
 
 ## Compute the nucleotide shift compared to gene start site
 #python3.10 check_frame.py ./Nterm/results/Nterm_counted_onTarget.csv ../Human_Genome_hg38/hg38.gene_table.tsv Nterm
@@ -135,10 +135,10 @@ python3.10 check_on_target.py ../results/Nterm/results/Nterm_mapped_clean.csv ..
 
 ## Clean the bowtie2 alignment files
 # Arg1 is the input BAM file containing sorted bowtie2 alignments. Arg2 is the terminus of the sample
-python3.10 clean_Bowtie_alignments.py ../results/Cterm/Bowtie2_Mapping/Cterm_bowtie2_mapped_sorted.bam Cterm
+python3.10 ./subscripts/clean_Bowtie_alignments.py ../results/Cterm/Bowtie2_Mapping/Cterm_bowtie2_mapped_sorted.bam Cterm
 
 ## Find the reads that are on-target with sgRNA library
-python3.10 check_on_target.py ../results/Cterm/results/Cterm_mapped_clean.csv ../../common_data/CTERM-LIBRARY-TABLE.tsv Cterm
+python3.10 ./subscripts/check_on_target.py ../results/Cterm/results/Cterm_mapped_clean.csv ../data/CTERM-LIBRARY-TABLE.tsv Cterm
 
 ## Compute the nucleotide shift compared to gene start site
 #python3.10 check_frame.py ./Cterm/results/Cterm_counted_onTarget.csv ../Human_Genome_hg38/hg38.gene_table.tsv Cterm
