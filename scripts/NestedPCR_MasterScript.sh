@@ -2,11 +2,10 @@
 
 # Xavier Castellanos-Girouard
 #
-# v2 of NGS pipeline for nested PCR data. 
-# In this version. Fwd and rev reads are treated separate whenever possible
+# NGS pipeline for nested PCR data. 
 #
 # Date First Created: April 1st 2025
-# Date Last Modified: June 26th 2025
+# Date Last Modified: July 5th 2025
 
 ## Note: Information in the fastq file sequence identifier follows the following format:
 # @<instrument>:<run number>:<flowcell ID>:<lane>:<tile>:<x-pos>:<y-pos>:<UMI> <read>:<is filtered>:<control number>:<index>
