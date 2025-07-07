@@ -1,20 +1,20 @@
 # Instructions on scripts #
 
 ## Counting sgRNA reads ##
-**mageck.sh** is a script that counts sgRNAs from NGS reads using the MAGeCK programme (Li et al., 2014).
-The script currently runs on the NGS data for the PRISM paper (Karimi et al., 2025).
-To use the script as-is, use the same file architecture as the GitHub repository. You will need to change the first line of the script (cd command) to the path towards the analysis file on your computer.
-Use the fetchFastQ scripts (see data directory of this repo) to download the NGS data.
+**mageck.sh** is a script that counts sgRNAs from NGS reads using the MAGeCK programme (Li et al., 2014). <br>
+The script currently runs on the NGS data for the PRISM paper (Karimi et al., 2025). <br>
+To use the script as-is, use the same file architecture as the GitHub repository. You will need to change the first line of the script (cd command) to the path towards the analysis file on your computer. <br>
+Use the fetchFastQ scripts (see data directory of this repo) to download the NGS data. <br>
 
 ## Nested PCR Analyses ##
 
-**NestedPCR_MasterScript.sh** is a master script to execute all the analyses related to the NestedPCR data (Figure 4 of Karimi et al., 2025).
-First, the master script will run Cterm_Trimming.sh and Nterm_Trimming.sh, which use Cutadapt to remove unwanted reads (plasmid) and trim flanking regions (DHFR and linker).
-Second, the master script will align the reads to a reference genome using Bowtie2. The alignments will be sorted and converted to BAM format using samtools.
-Third, the master script will filter the Bowtie2 reads using the clean_Bowtie_alignments.py script. This removes the SAM header, filters unaligned reads, etc.
-Fourth, the master script will check if the aligned reads are consistent with on-Target integration of the donor DNA. A gene name and accession ID will also be assigned to each read if it is onTarget.
-
-The Final_Analysis_and_Figure.R script is meant to be opened with RStudio to view the data. We currently using a Mapping Quality Threshold (MAPQ) of 20 and use concordant and reverse-only reads to estimate on-target ratios.
+**NestedPCR_MasterScript.sh** is a master script to execute all the analyses related to the NestedPCR data (Figure 4 of Karimi et al., 2025). <br>
+First, the master script will run Cterm_Trimming.sh and Nterm_Trimming.sh, which use Cutadapt to remove unwanted reads (plasmid) and trim flanking regions (DHFR and linker). <br>
+Second, the master script will align the reads to a reference genome using Bowtie2. The alignments will be sorted and converted to BAM format using samtools. <br>
+Third, the master script will filter the Bowtie2 reads using the clean_Bowtie_alignments.py script. This removes the SAM header, filters unaligned reads, etc. <br>
+Fourth, the master script will check if the aligned reads are consistent with on-Target integration of the donor DNA. A gene name and accession ID will also be assigned to each read if it is onTarget. <br>
+<br>
+The Final_Analysis_and_Figure.R script is meant to be opened with RStudio to view the data. We currently using a Mapping Quality Threshold (MAPQ) of 20 and use concordant and reverse-only reads to estimate on-target ratios. <br>
 
 ## REFERENCES ##
 
