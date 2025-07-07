@@ -2,9 +2,12 @@
 
 ## Counting sgRNA reads ##
 **mageck.sh** is a script that counts sgRNAs from NGS reads using the MAGeCK programme (Li et al., 2014). <br>
+<br>
 The script currently runs on the NGS data for the PRISM paper (Karimi et al., 2025). <br>
-To use the script as-is, use the same file architecture as the GitHub repository. You will need to change the first line of the script (cd command) to the path towards the analysis file on your computer. <br>
-Use the fetchFastQ scripts (see data directory of this repo) to download the NGS data. <br>
+<br>
+To use the script as-is, use the same file architecture as the GitHub repository. You will need to change the first line of the script (cd command) to the path towards the PRISM_NGS_Analyses directory on your computer. <br>
+<br>
+Use the fetchFastQ scripts (see ./data directory of the repo) to download the NGS data. <br>
 
 ## Nested PCR Analyses ##
 
