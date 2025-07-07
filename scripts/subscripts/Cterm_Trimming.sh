@@ -14,17 +14,17 @@
 ########## Initiate directories ##########
 
 ## Keep discarded reads here
-mkdir Cterm/Discarded
-mkdir Cterm/Discarded/plasmid_removal
-mkdir Cterm/Discarded/DHFR_removal
-mkdir Cterm/Discarded/linker_removal
+mkdir ../results/Cterm/Discarded
+mkdir ../results/Cterm/Discarded/plasmid_removal
+mkdir ../results/Cterm/Discarded/DHFR_removal
+mkdir ../results/Cterm/Discarded/linker_removal
 
 ## For files that are used as input for downstream in the script
-mkdir Cterm/Intermediate
-mkdir Cterm/Intermediate/plasmid_removal
-mkdir Cterm/Intermediate/DHFR_removal
-mkdir Cterm/Intermediate/linker_removal
-mkdir Cterm/Intermediate/polyG_removal
+mkdir ../results/Cterm/Intermediate
+mkdir ../results/Cterm/Intermediate/plasmid_removal
+mkdir ../results/Cterm/Intermediate/DHFR_removal
+mkdir ../results/Cterm/Intermediate/linker_removal
+mkdir ../results/Cterm/Intermediate/polyG_removal
 
 
 
@@ -59,11 +59,11 @@ cutadapt -a CCATCGCGAGTTTTAGAGCTAGAAATAGCAAGX `# Sequence we want to remove.` \
   --cores 5 \
   -o /dev/null `# Discard fwd reads with plasmid` \
   -p /dev/null `# Discard rev reads that pair with fwd reads containing plasmid sequence` \
-  --untrimmed-output Cterm/Intermediate/plasmid_removal/noplasmidFWD_CLib_NestedPCR_R1.fastq.gz  `# Output for fwd reads not containing plasmid sequence` \
-  --untrimmed-paired-output Cterm/Intermediate/plasmid_removal/noplasmidFWD_CLib_NestedPCR_R2.fastq.gz `# Output for rev reads that pair with fwd reads not containing plasmid sequence` \
+  --untrimmed-output ../results/Cterm/Intermediate/plasmid_removal/noplasmidFWD_CLib_NestedPCR_R1.fastq.gz  `# Output for fwd reads not containing plasmid sequence` \
+  --untrimmed-paired-output ../results/Cterm/Intermediate/plasmid_removal/noplasmidFWD_CLib_NestedPCR_R2.fastq.gz `# Output for rev reads that pair with fwd reads not containing plasmid sequence` \
   ../data/DSP1472/HLTJ3BGXM/fastq/Sample_Human_Clib/Human_Clib_S1_R1_001.fastq.gz `# raw fwd reads input file` \
   ../data/DSP1472/HLTJ3BGXM/fastq/Sample_Human_Clib/Human_Clib_S1_R2_001.fastq.gz `# raw rev reads input file` \
-  1> ./Cterm/Logs/Cterm_FWD_RemovePlasmid.txt
+  1> ../results/Cterm/Logs/Cterm_FWD_RemovePlasmid.txt
 
 # If Discarded reads are of interest, use the following:
 #  -o Cterm/Discarded/plasmid_removal/plasmidFWD_CLib_NestedPCR_R1.fastq.gz \
@@ -84,11 +84,11 @@ cutadapt -a CCATCGCGAGTTTTA `# Sequence we want to remove.` \
   --cores 5 \
   -o /dev/null `# Discard fwd reads with plasmid` \
   -p /dev/null `# Discard rev reads that pair with fwd reads containing plasmid sequence` \
-  --untrimmed-output Cterm/Intermediate/plasmid_removal/noplasmidFWD2_CLib_NestedPCR_R1.fastq.gz  `# Output for fwd reads not containing partial plasmid sequence` \
-  --untrimmed-paired-output Cterm/Intermediate/plasmid_removal/noplasmidFWD2_CLib_NestedPCR_R2.fastq.gz `# Output for rev reads that pair with fwd reads not containing partial plasmid sequence` \
-  Cterm/Intermediate/plasmid_removal/noplasmidFWD_CLib_NestedPCR_R1.fastq.gz `# fwd reads input file` \
-  Cterm/Intermediate/plasmid_removal/noplasmidFWD_CLib_NestedPCR_R2.fastq.gz `# rev reads input file` \
-  1> ./Cterm/Logs/Cterm_FWD2_RemovePlasmid.txt
+  --untrimmed-output ../results/Cterm/Intermediate/plasmid_removal/noplasmidFWD2_CLib_NestedPCR_R1.fastq.gz  `# Output for fwd reads not containing partial plasmid sequence` \
+  --untrimmed-paired-output ../results/Cterm/Intermediate/plasmid_removal/noplasmidFWD2_CLib_NestedPCR_R2.fastq.gz `# Output for rev reads that pair with fwd reads not containing partial plasmid sequence` \
+  ../results/Cterm/Intermediate/plasmid_removal/noplasmidFWD_CLib_NestedPCR_R1.fastq.gz `# fwd reads input file` \
+  ../results/Cterm/Intermediate/plasmid_removal/noplasmidFWD_CLib_NestedPCR_R2.fastq.gz `# rev reads input file` \
+  1> ../results/Cterm/Logs/Cterm_FWD2_RemovePlasmid.txt
 
 # If Discarded reads are of interest, use the following:
 #  -o Cterm/Discarded/plasmid_removal/plasmidFWD2_CLib_NestedPCR_R1.fastq.gz \
@@ -103,11 +103,11 @@ cutadapt -a AGACGTTCTGCTTCACTCTCCCCATCT `# Sequence we want to remove.` \
   --cores 5 \
   -o /dev/null `# Discard fwd reads with plasmid` \
   -p /dev/null `# Discard rev reads that pair with fwd reads containing plasmid sequence` \
-  --untrimmed-output Cterm/Intermediate/plasmid_removal/noplasmidFWD3_CLib_NestedPCR_R1.fastq.gz  `# Output for fwd reads not containing partial plasmid sequence` \
-  --untrimmed-paired-output Cterm/Intermediate/plasmid_removal/noplasmidFWD3_CLib_NestedPCR_R2.fastq.gz `# Output for rev reads that pair with fwd reads not containing partial plasmid sequence` \
-  Cterm/Intermediate/plasmid_removal/noplasmidFWD2_CLib_NestedPCR_R1.fastq.gz `# fwd reads input file` \
-  Cterm/Intermediate/plasmid_removal/noplasmidFWD2_CLib_NestedPCR_R2.fastq.gz `# rev reads input file` \
-  1> ./Cterm/Logs/Cterm_FWD3_RemovePlasmid.txt
+  --untrimmed-output ../results/Cterm/Intermediate/plasmid_removal/noplasmidFWD3_CLib_NestedPCR_R1.fastq.gz  `# Output for fwd reads not containing partial plasmid sequence` \
+  --untrimmed-paired-output ../results/Cterm/Intermediate/plasmid_removal/noplasmidFWD3_CLib_NestedPCR_R2.fastq.gz `# Output for rev reads that pair with fwd reads not containing partial plasmid sequence` \
+  ../results/Cterm/Intermediate/plasmid_removal/noplasmidFWD2_CLib_NestedPCR_R1.fastq.gz `# fwd reads input file` \
+  ../results/Cterm/Intermediate/plasmid_removal/noplasmidFWD2_CLib_NestedPCR_R2.fastq.gz `# rev reads input file` \
+  1> ../results/Cterm/Logs/Cterm_FWD3_RemovePlasmid.txt
 
 # If Discarded reads are of interest, use the following:
 #  -o Cterm/Discarded/plasmid_removal/plasmidFWD3_CLib_NestedPCR_R1.fastq.gz \
@@ -127,11 +127,11 @@ cutadapt -G CTTGCTATTTCTAGCTCTAAAACTCGCGATGG `# Sequence we want to remove.` \
   --cores 5 \
   -o /dev/null `# Discard fwd reads with plasmid` \
   -p /dev/null `# Discard rev reads that pair with fwd reads containing plasmid sequence` \
-  --untrimmed-output Cterm/Intermediate/plasmid_removal/noplasmidREV_CLib_NestedPCR_R1.fastq.gz  `# Output for fwd reads that pair with rev reads not containing plasmid sequence` \
-  --untrimmed-paired-output Cterm/Intermediate/plasmid_removal/noplasmidREV_CLib_NestedPCR_R2.fastq.gz `# Output for rev reads not containing plasmid sequence` \
-  ./Cterm/Intermediate/plasmid_removal/noplasmidFWD3_CLib_NestedPCR_R1.fastq.gz `# fwd reads input file` \
-  ./Cterm/Intermediate/plasmid_removal/noplasmidFWD3_CLib_NestedPCR_R2.fastq.gz `# rev reads input file` \
-  1> ./Cterm/Logs/Cterm_REV_RemovePlasmid.txt
+  --untrimmed-output ../results/Cterm/Intermediate/plasmid_removal/noplasmidREV_CLib_NestedPCR_R1.fastq.gz  `# Output for fwd reads that pair with rev reads not containing plasmid sequence` \
+  --untrimmed-paired-output ../results/Cterm/Intermediate/plasmid_removal/noplasmidREV_CLib_NestedPCR_R2.fastq.gz `# Output for rev reads not containing plasmid sequence` \
+  ../results/Cterm/Intermediate/plasmid_removal/noplasmidFWD3_CLib_NestedPCR_R1.fastq.gz `# fwd reads input file` \
+  ../results/Cterm/Intermediate/plasmid_removal/noplasmidFWD3_CLib_NestedPCR_R2.fastq.gz `# rev reads input file` \
+  1> ../results/Cterm/Logs/Cterm_REV_RemovePlasmid.txt
 
 # If Discarded reads are of interest, use the following:
 #  -o Cterm/Discarded/plasmid_removal/plasmidREV_CLib_NestedPCR_R1.fastq.gz \
@@ -146,11 +146,11 @@ cutadapt -G TAAAACTCGCGATGG `# Sequence we want to remove.` \
   --cores 5 \
   -o /dev/null `# Discard fwd reads with plasmid` \
   -p /dev/null `# Discard rev reads that pair with fwd reads containing plasmid sequence` \
-  --untrimmed-output Cterm/Intermediate/plasmid_removal/noplasmidREV2_CLib_NestedPCR_R1.fastq.gz  `# Output for fwd reads that pair with rev reads not containing partial plasmid sequence` \
-  --untrimmed-paired-output Cterm/Intermediate/plasmid_removal/noplasmidREV2_CLib_NestedPCR_R2.fastq.gz `# Output for rev reads not containing partial plasmid sequence` \
-  Cterm/Intermediate/plasmid_removal/noplasmidREV_CLib_NestedPCR_R1.fastq.gz `# fwd reads input file` \
-  Cterm/Intermediate/plasmid_removal/noplasmidREV_CLib_NestedPCR_R2.fastq.gz `# rev reads input file` \
-  1> ./Cterm/Logs/Cterm_REV2_RemovePlasmid.txt
+  --untrimmed-output ../results/Cterm/Intermediate/plasmid_removal/noplasmidREV2_CLib_NestedPCR_R1.fastq.gz  `# Output for fwd reads that pair with rev reads not containing partial plasmid sequence` \
+  --untrimmed-paired-output ../results/Cterm/Intermediate/plasmid_removal/noplasmidREV2_CLib_NestedPCR_R2.fastq.gz `# Output for rev reads not containing partial plasmid sequence` \
+  ../results/Cterm/Intermediate/plasmid_removal/noplasmidREV_CLib_NestedPCR_R1.fastq.gz `# fwd reads input file` \
+  ../results/Cterm/Intermediate/plasmid_removal/noplasmidREV_CLib_NestedPCR_R2.fastq.gz `# rev reads input file` \
+  1> ../results/Cterm/Logs/Cterm_REV2_RemovePlasmid.txt
 
 # If Discarded reads are of interest, use the following:
 #  -o Cterm/Discarded/plasmid_removal/plasmidREV2_CLib_NestedPCR_R1.fastq.gz \
@@ -172,13 +172,13 @@ cutadapt -G TAAAACTCGCGATGG `# Sequence we want to remove.` \
 #	The 3'-5' translation: MVRPLN (Nterminal of DHFR-F[1,2])
 cutadapt -g ^GTTCAATGGTCGAACCAT `# Sequence we want to trim.` \
   -e 0.25 `# error rate` \
-  -o Cterm/Intermediate/DHFR_removal/noDHFR_FWD_CLib_NestedPCR_R1.fastq.gz \
-  -p Cterm/Intermediate/DHFR_removal/noDHFR_FWD_CLib_NestedPCR_R2.fastq.gz \
-  --untrimmed-output Cterm/Discarded/DHFR_removal/DHFR_FWD_CLib_NestedPCR_R1.fastq.gz \
-  --untrimmed-paired-output Cterm/Discarded/DHFR_removal/DHFR_FWD_CLib_NestedPCR_R2.fastq.gz \
-  Cterm/Intermediate/plasmid_removal/noplasmidREV2_CLib_NestedPCR_R1.fastq.gz \
-  Cterm/Intermediate/plasmid_removal/noplasmidREV2_CLib_NestedPCR_R2.fastq.gz \
-  1> ./Cterm/Logs/Cterm_FWD_RemoveDHFR.txt
+  -o ../results/Cterm/Intermediate/DHFR_removal/noDHFR_FWD_CLib_NestedPCR_R1.fastq.gz \
+  -p ../results/Cterm/Intermediate/DHFR_removal/noDHFR_FWD_CLib_NestedPCR_R2.fastq.gz \
+  --untrimmed-output ../results/Cterm/Discarded/DHFR_removal/DHFR_FWD_CLib_NestedPCR_R1.fastq.gz \
+  --untrimmed-paired-output ../results/Cterm/Discarded/DHFR_removal/DHFR_FWD_CLib_NestedPCR_R2.fastq.gz \
+  ../results/Cterm/Intermediate/plasmid_removal/noplasmidREV2_CLib_NestedPCR_R1.fastq.gz \
+  ../results/Cterm/Intermediate/plasmid_removal/noplasmidREV2_CLib_NestedPCR_R2.fastq.gz \
+  1> ../results/Cterm/Logs/Cterm_FWD_RemoveDHFR.txt
 
 
 ########## Trim linker sequence from reads ##########
@@ -194,12 +194,12 @@ cutadapt -g ^GTTCAATGGTCGAACCAT `# Sequence we want to trim.` \
 ##### Sequential trimming #####
 
 i=1
-curr_input_R1="./Cterm/Intermediate/DHFR_removal/noDHFR_FWD_CLib_NestedPCR_R1.fastq.gz"
-curr_input_R2="./Cterm/Intermediate/DHFR_removal/noDHFR_FWD_CLib_NestedPCR_R2.fastq.gz"
+curr_input_R1="../results/Cterm/Intermediate/DHFR_removal/noDHFR_FWD_CLib_NestedPCR_R1.fastq.gz"
+curr_input_R2="../results/Cterm/Intermediate/DHFR_removal/noDHFR_FWD_CLib_NestedPCR_R2.fastq.gz"
 linker="AGACCCACCGCCTCCTGATCCGCCACCGCC"
 
-intermediates_dir="./Cterm/Intermediate/linker_removal"
-discarding_dir="./Cterm/Discarded/linker_removal"
+intermediates_dir="../results/Cterm/Intermediate/linker_removal"
+discarding_dir="../results/Cterm/Discarded/linker_removal"
   
 #echo $intermediates_dir
 
@@ -215,7 +215,7 @@ while (( ${#linker} >= 15 )); do
     --untrimmed-paired-output "$discarding_dir/noLinker${i}_CLib_NestedPCR_R2.fastq.gz" \
     "$curr_input_R1" \
     "$curr_input_R2" \
-    1> "./Cterm/Logs/Cterm_RemoveLinker${i}.txt"
+    1> "../results/Cterm/Logs/Cterm_RemoveLinker${i}.txt"
   
   curr_input_R1="$discarding_dir/noLinker${i}_CLib_NestedPCR_R1.fastq.gz"
   curr_input_R2="$discarding_dir/noLinker${i}_CLib_NestedPCR_R2.fastq.gz"
@@ -243,14 +243,14 @@ cutadapt -g "TCCGCCACCGCC"  `# Sequence we want to trim.` \
     -p "$intermediates_dir/noLinker7_CLib_NestedPCR_R2.fastq.gz" \
     --untrimmed-output "$discarding_dir/noLinker7_CLib_NestedPCR_R1.fastq.gz" \
     --untrimmed-paired-output "$discarding_dir/noLinker7_CLib_NestedPCR_R2.fastq.gz" \
-    "./Cterm/Discarded/linker_removal/noLinker6_CLib_NestedPCR_R1.fastq.gz" \
-    "./Cterm/Discarded/linker_removal/noLinker6_CLib_NestedPCR_R2.fastq.gz" \
-    1> "./Cterm/Logs/Cterm_RemoveLinker7.txt"
+    "../results/Cterm/Discarded/linker_removal/noLinker6_CLib_NestedPCR_R1.fastq.gz" \
+    "../results/Cterm/Discarded/linker_removal/noLinker6_CLib_NestedPCR_R2.fastq.gz" \
+    1> "../results/Cterm/Logs/Cterm_RemoveLinker7.txt"
 
 
 ### Combine different trimmings into a single fastq.gz file
-cat Cterm/Intermediate/linker_removal/*_R1.fastq.gz > Cterm/Intermediate/linker_removal/noLinker_CLib_NestedPCR_R1.fastq.gz
-cat Cterm/Intermediate/linker_removal/*_R2.fastq.gz > Cterm/Intermediate/linker_removal/noLinker_CLib_NestedPCR_R2.fastq.gz
+cat ../results/Cterm/Intermediate/linker_removal/*_R1.fastq.gz > ../results/Cterm/Intermediate/linker_removal/noLinker_CLib_NestedPCR_R1.fastq.gz
+cat ../results/Cterm/Intermediate/linker_removal/*_R2.fastq.gz > ../results/Cterm/Intermediate/linker_removal/noLinker_CLib_NestedPCR_R2.fastq.gz
 
 
 
@@ -261,11 +261,11 @@ cutadapt -G "G{75}" `# Sequence we want to trim.` \
     -q 10 `# Phred score cutoff` \
     --trim-n `# Trim uncalled nucleotides from read extremities` \
     --minimum-length 10 `# Minimum length of the read` \
-    -o "Cterm/Intermediate/polyG_removal/noPolyG_CLib_NestedPCR_R1.fastq.gz" \
-    -p "Cterm/Intermediate/polyG_removal/noPolyG_CLib_NestedPCR_R2.fastq.gz" \
+    -o "../results/Cterm/Intermediate/polyG_removal/noPolyG_CLib_NestedPCR_R1.fastq.gz" \
+    -p "../results/Cterm/Intermediate/polyG_removal/noPolyG_CLib_NestedPCR_R2.fastq.gz" \
     "$intermediates_dir/noLinker_CLib_NestedPCR_R1.fastq.gz" \
     "$intermediates_dir/noLinker_CLib_NestedPCR_R2.fastq.gz" \
-    1> "./Cterm/Logs/Cterm_RemovePolyG.txt"
+    1> "../results/Cterm/Logs/Cterm_RemovePolyG.txt"
 
 
 
