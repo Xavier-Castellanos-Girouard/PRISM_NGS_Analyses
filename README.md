@@ -22,7 +22,7 @@ The pipeline is designed such that there is one master script for each individua
     - Fetch raw NGS data (see data/README.md for instructions).
     - Download genome build indexes for Bowtie2 alignements (see data/README.md for instructions).
     - Execute NestedPCR_MasterScript.sh from the scripts/ directory.
-
+<br>
 Further information on the input data and the individual scripts are found in their respective README files. <br>
 
 ## Dependencies ##
