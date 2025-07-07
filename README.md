@@ -4,7 +4,7 @@ Computational Pipeline for the PRISM paper. <br>
 The design of this pipeline is significantly inspired by scripts originally written by Masih Saber. <br>
 <br>
 Two analyses are performed: <br>
-1. counting sgRNAs (using MAGeCK) at different steps of the experimental pipeline.
+1. Counting sgRNAs (using MAGeCK) at different steps of the experimental pipeline.
 2. Determining the On-Target efficiency of the experimental pipeline using Nested PCR results.
 
 ## Executing the code ##
