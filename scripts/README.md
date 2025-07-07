@@ -15,6 +15,8 @@ Use the fetchFastQ scripts (see data directory of this repo) to download the NGS
 - Fourth, the master script will check if the aligned reads are consistent with on-Target integration of the donor DNA. A gene name and accession ID will also be assigned to each read if it is onTarget. <br>
 <br>
 The Final_Analysis_and_Figure.R script is meant to be opened with RStudio to view the data. We currently using a Mapping Quality Threshold (MAPQ) of 20 and use concordant and reverse-only reads to estimate on-target ratios. <br>
+ <br>
+The scripts executed by NestedPCR_MasterScript.sh are located in the subscripts directory.
 
 ## REFERENCES ##
 
