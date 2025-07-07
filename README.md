@@ -8,7 +8,7 @@ Two analyses are performed: 1) counting sgRNAs (using MAGeCK) at different steps
 ## Executing the code ##
 The pipeline is designed such that there is one master script for each individual analysis: **mageck.sh** for sgRNA counting, and **NestedPCR_MasterScript.sh** for On-Target analyses. <br>
 These master scripts should be executed on a command line from the PRISM_NGS_Analysis/scripts directory. <br> 
-See the dependencies for the scripts in the README section below. Further information on the input data and the invdividual scripts are found in their respective README files <br>
+See the dependencies for the scripts in the README section below. Further information on the input data and the invdividual scripts are found in their respective README files. <br>
 
 ## Dependencies ##
 
