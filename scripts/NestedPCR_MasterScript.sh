@@ -16,8 +16,8 @@
 # Cutadapt version 5.0
 # Samtools version 1.9
 # Bowtie2 version 2.3.5.1
-# Bowtie version 1.2.2
-# htseq-count version 2.0.9
+# Bowtie version 1.2.2 (NO LONGER RELEVANT)
+# htseq-count version 2.0.9 (NO LONGER RELEVANT)
 
 ########## Initiate directories ##########
 
