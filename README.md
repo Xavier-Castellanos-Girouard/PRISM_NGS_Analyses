@@ -1,4 +1,4 @@
-# PRISM_NGS_Analyses
+# PRISM NGS Analyses
 Computational Pipeline for the PRISM paper. <br>
 <br>
 The design of this pipeline is significantly inspired by scripts originally written by Masih Saber. <br>
