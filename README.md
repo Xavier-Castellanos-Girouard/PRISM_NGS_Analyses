@@ -8,7 +8,22 @@ Two analyses are performed: 1) counting sgRNAs (using MAGeCK) at different steps
 ## Executing the code ##
 The pipeline is designed such that there is one master script for each individual analysis: **mageck.sh** for sgRNA counting, and **NestedPCR_MasterScript.sh** for On-Target analyses. <br>
 These master scripts should be executed on a command line from the PRISM_NGS_Analysis/scripts directory. <br> 
-See the dependencies for the scripts in the README section below. <br>
+See the dependencies for the scripts in the README section below. Further information on the input data and the invdividual scripts are found in their respective README files <br>
+
+## Dependencies ##
+
+- Cutadapt version 5.0
+- Samtools version 1.9
+- Bowtie2 version 2.3.5.1
+- Python version 3.10
+  - pandas 2.2.3
+  - numpy 2.2.4
+  - tqdm 4.67.1
+- R version 4.4.0
+  - dplyr 1.1.4
+  - tidyr 1.3.1
+  - data.table 1.15.4
+  - ggplot2 3.5.1
 
 ## References ##
 
@@ -26,17 +41,3 @@ https://doi.org/10.1038/nmeth.1923
 
 **Samtools** Li, H. et al. The Sequence Alignment/Map format and SAMtools. Bioinformatics  25,  2078–2079 (2009).
 
-## Dependencies ##
-
-- Cutadapt version 5.0
-- Samtools version 1.9
-- Bowtie2 version 2.3.5.1
-- Python version 3.10
-  - pandas 2.2.3
-  - numpy 2.2.4
-  - tqdm 4.67.1
-- R version 4.4.0
-  - dplyr 1.1.4
-  - tidyr 1.3.1
-  - data.table 1.15.4
-  - ggplot2 3.5.1
