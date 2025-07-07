@@ -30,36 +30,36 @@
 
 ##### Directories for N-terminal analysis #####
 
-mkdir Nterm
+mkdir ../results/Nterm
 
 ## For bowtie and htseq mapping/annotation files
-mkdir Nterm/Bowtie2_Mapping # Keep bowtie2 mappings here
+mkdir ../results/Nterm/Bowtie2_Mapping # Keep bowtie2 mappings here
 
 ## For Log/summary files created at every processing step
-mkdir Nterm/Logs
+mkdir ../results/Nterm/Logs
 
 ## Keep final results here
-mkdir Nterm/results
+mkdir ../results/Nterm/results
 
 
 ##### Directories for C-terminal analysis #####
 
-mkdir Cterm
+mkdir ../results/Cterm
 
 ## For bowtie and htseq mapping/annotation files
-mkdir Cterm/Bowtie2_Mapping # Keep bowtie2 mappings here
+mkdir ../results/Cterm/Bowtie2_Mapping # Keep bowtie2 mappings here
 
 ## For Log/summary files created at every processing step
-mkdir Cterm/Logs
+mkdir ../results/Cterm/Logs
 
 ## Keep final results here
-mkdir Cterm/results
+mkdir ../results/Cterm/results
 
 
 ########## Trim flanking regions of reads ##########
 
-bash Nterm_Trimming.sh
-bash Cterm_Trimming.sh
+bash ./subscripts/Nterm_Trimming.sh
+bash ./subscripts/Cterm_Trimming.sh
 
 
 ########## Aligning reads to the genome using Bowtie2 ##########
@@ -83,36 +83,36 @@ echo "Alignment of reads to the genome using Bowtie2"
 
 ##### Alignment of forward and reverse for Nterminal sample #####
 
-bowtie2 -x ../Human_Genome_hg38/Bowtie2Index/genome \
-  -1 Nterm/Intermediate/polyG_removal/noPolyG_NLib_NestedPCR_R1.fastq.gz \
-  -2 Nterm/Intermediate/polyG_removal/noPolyG_NLib_NestedPCR_R2.fastq.gz \
+bowtie2 -x ../data/Human_Genome_hg38/Bowtie2Index/genome \
+  -1 ../results/Nterm/Intermediate/polyG_removal/noPolyG_NLib_NestedPCR_R1.fastq.gz \
+  -2 ../results/Nterm/Intermediate/polyG_removal/noPolyG_NLib_NestedPCR_R2.fastq.gz \
   --very-sensitive-local \
   --dovetail \
   -p 4 \
-  -S ./Nterm/Bowtie2_Mapping/Nterm_bowtie2_mapped.sam \
+  -S ../results/Nterm/Bowtie2_Mapping/Nterm_bowtie2_mapped.sam \
   -I 10 \
   -X 1000 \
-  2> ./Nterm/Logs/Nterm_bowtie2_mapped.txt
+  2> ../results/Nterm/Logs/Nterm_bowtie2_mapped.txt
 
 ## Convert sam files to bam files and sort according to position
-samtools view -bS Nterm/Bowtie2_Mapping/Nterm_bowtie2_mapped.sam | samtools sort -o Nterm/Bowtie2_Mapping/Nterm_bowtie2_mapped_sorted.bam
+samtools view -bS ../results/Nterm/Bowtie2_Mapping/Nterm_bowtie2_mapped.sam | samtools sort -o ../results/Nterm/Bowtie2_Mapping/Nterm_bowtie2_mapped_sorted.bam
 
 
 ##### Alignment of forward and reverse for Cterminal sample #####
 
-bowtie2 -x ../Human_Genome_hg38/Bowtie2Index/genome \
-  -1 Cterm/Intermediate/polyG_removal/noPolyG_CLib_NestedPCR_R1.fastq.gz \
-  -2 Cterm/Intermediate/polyG_removal/noPolyG_CLib_NestedPCR_R2.fastq.gz \
+bowtie2 -x ../data/Human_Genome_hg38/Bowtie2Index/genome \
+  -1 ../results/Cterm/Intermediate/polyG_removal/noPolyG_CLib_NestedPCR_R1.fastq.gz \
+  -2 ../results/Cterm/Intermediate/polyG_removal/noPolyG_CLib_NestedPCR_R2.fastq.gz \
   --very-sensitive-local \
    --dovetail \
   -p 4 \
-  -S ./Cterm/Bowtie2_Mapping/Cterm_bowtie2_mapped.sam \
+  -S ../results/Cterm/Bowtie2_Mapping/Cterm_bowtie2_mapped.sam \
   -I 10 \
   -X 1000 \
-  2> ./Cterm/Logs/Cterm_bowtie2_mapped.txt
+  2> ../results/Cterm/Logs/Cterm_bowtie2_mapped.txt
 
 ## Convert sam files to bam files and sort according to position
-samtools view -bS Cterm/Bowtie2_Mapping/Cterm_bowtie2_mapped.sam | samtools sort -o Cterm/Bowtie2_Mapping/Cterm_bowtie2_mapped_sorted.bam
+samtools view -bS ../results/Cterm/Bowtie2_Mapping/Cterm_bowtie2_mapped.sam | samtools sort -o ../results/Cterm/Bowtie2_Mapping/Cterm_bowtie2_mapped_sorted.bam
 
 
 ########## On-target analysis and frame-shift ##########
@@ -121,10 +121,11 @@ samtools view -bS Cterm/Bowtie2_Mapping/Cterm_bowtie2_mapped.sam | samtools sort
 ##### N-terminal analysis #####
 
 ## Clean the bowtie2 alignment files
-python3.10 clean_Bowtie_alignments.py Nterm/Bowtie2_Mapping/Nterm_bowtie2_mapped_sorted.bam Nterm
+# Arg1 is the input BAM file containing sorted bowtie2 alignments. Arg2 is the terminus of the sample
+python3.10 subscripts/clean_Bowtie_alignments.py ../results/Nterm/Bowtie2_Mapping/Nterm_bowtie2_mapped_sorted.bam Nterm
 
 ## Find the reads that are on-target with sgRNA library
-python3.10 check_on_target.py ./Nterm/results/Nterm_mapped_clean.csv ../../common_data/NTERM-LIBRARY-TABLE.tsv Nterm
+python3.10 check_on_target.py ../results/Nterm/results/Nterm_mapped_clean.csv ../data/sgRNA_library/NTERM-LIBRARY-TABLE.tsv Nterm
 
 ## Compute the nucleotide shift compared to gene start site
 #python3.10 check_frame.py ./Nterm/results/Nterm_counted_onTarget.csv ../Human_Genome_hg38/hg38.gene_table.tsv Nterm
@@ -133,10 +134,11 @@ python3.10 check_on_target.py ./Nterm/results/Nterm_mapped_clean.csv ../../commo
 ##### C-terminal analysis #####
 
 ## Clean the bowtie2 alignment files
-python3.10 clean_Bowtie_alignments.py Cterm/Bowtie2_Mapping/Cterm_bowtie2_mapped_sorted.bam Cterm
+# Arg1 is the input BAM file containing sorted bowtie2 alignments. Arg2 is the terminus of the sample
+python3.10 clean_Bowtie_alignments.py ../results/Cterm/Bowtie2_Mapping/Cterm_bowtie2_mapped_sorted.bam Cterm
 
 ## Find the reads that are on-target with sgRNA library
-python3.10 check_on_target.py ./Cterm/results/Cterm_mapped_clean.csv ../../common_data/CTERM-LIBRARY-TABLE.tsv Cterm
+python3.10 check_on_target.py ../results/Cterm/results/Cterm_mapped_clean.csv ../../common_data/CTERM-LIBRARY-TABLE.tsv Cterm
 
 ## Compute the nucleotide shift compared to gene start site
 #python3.10 check_frame.py ./Cterm/results/Cterm_counted_onTarget.csv ../Human_Genome_hg38/hg38.gene_table.tsv Cterm
