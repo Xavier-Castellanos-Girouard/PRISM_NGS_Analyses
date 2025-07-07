@@ -10,12 +10,26 @@ Two analyses are performed: <br>
 ## Executing the code ##
 The pipeline is designed such that there is one master script for each individual analysis: **mageck.sh** for sgRNA counting, and **NestedPCR_MasterScript.sh** for On-Target analyses. <br>
 <br>
+1. **Checklist for counting sgRNAs**:
+  - Clone the github repository.
+  - Install MAGeCK v.0.5.9.4
+  - Fetch raw NGS data (see data/README.md for instructions).
+  - Modify the first line mageck.sh script; change the directory for that of the repo on your machine.
+  - Execute mageck.sh from the PRISM_NGS_Analyses directory.
+2. **Checklist for Nested PCR analyses**:
+    - Clone the github repository (if not already done).
+    - Install the dependencies (see README section below).
+    - Fetch raw NGS data (see data/README.md for instructions).
+    - Download genome build indexes for Bowtie2 alignements (see data/README.md for instructions).
+    - Execute NestedPCR_MasterScript.sh from the scripts/ directory.
+
 These master scripts should be executed on a command line from the PRISM_NGS_Analysis/scripts directory. <br> 
 <br>
 See the dependencies for the scripts in the README section below. Further information on the input data and the individual scripts are found in their respective README files. <br>
 
 ## Dependencies ##
 
+- MAGeCK version 0.5.9.4
 - Cutadapt version 5.0
 - Samtools version 1.9
 - Bowtie2 version 2.3.5.1
