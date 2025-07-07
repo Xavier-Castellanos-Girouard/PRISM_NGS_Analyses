@@ -192,7 +192,7 @@ for chrom in tqdm(unique_chr_ls):
 ########## Export ##########
 
 annotated_reads_DF = pd.concat(list(read_DF_dict.values()))
-output_filename = TERMINUS+"/results/"+TERMINUS+"_annotated_onTarget.csv"
+output_filename = "../results/"TERMINUS+"/results/"+TERMINUS+"_annotated_onTarget.csv"
 annotated_reads_DF.to_csv(output_filename)
 
 
