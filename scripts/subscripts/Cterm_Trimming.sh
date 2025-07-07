@@ -162,10 +162,10 @@ cutadapt -G TAAAACTCGCGATGG `# Sequence we want to remove.` \
 
 ## Trim DHFR from 5' flanking region of forward read
 
-# *UPDATE THIS NOTE*Note: Anchored trimming is used (^), because DHFR is always at the 5' end.
+# Note: Anchored trimming is used (^), because DHFR is always at the 5' end.
 # 	and we are looking for instances where the donor DNA (DHFR-Linker)
 # 	is inserted without without indels in the donor. cutadapt -g ^ADAPTER
-# *UPDATE THIS NOTE*Note: We tolerate a high error rate because practically all reads
+# Note: We tolerate a high error rate because practically all reads
 #   contain the DHFR sequence (FWD primer sits on DHFR)
 #
 # Note: Upstream reverse complement DHFR-F[1,2] sequence: "gttcaatggtcgaaccat"
