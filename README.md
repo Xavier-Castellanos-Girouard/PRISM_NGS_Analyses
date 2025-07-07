@@ -23,9 +23,7 @@ The pipeline is designed such that there is one master script for each individua
     - Download genome build indexes for Bowtie2 alignements (see data/README.md for instructions).
     - Execute NestedPCR_MasterScript.sh from the scripts/ directory.
 
-These master scripts should be executed on a command line from the PRISM_NGS_Analysis/scripts directory. <br> 
-<br>
-See the dependencies for the scripts in the README section below. Further information on the input data and the individual scripts are found in their respective README files. <br>
+Further information on the input data and the individual scripts are found in their respective README files. <br>
 
 ## Dependencies ##
 
