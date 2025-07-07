@@ -9,7 +9,7 @@ The following two .csv files contain the reference sgRNA sequences for the C-ter
 
 ## 2. On-Target analyses using Nested PCR data
 
-The **DSP1374** and **DSP1472** directories contain the fetchFASTQ and fetchBams scripts which allow you to download the raw NGS data. <br>
+The **DSP1374** (N-terminal sample) and **DSP1472** (C-terminal sample) directories contain the fetchFASTQ and fetchBams scripts which allow you to download the raw NGS data. <br>
 <br>
 The following two .csv files contain the reference sgRNA sequences for the C-terminal and N-terminal sgRNA libraries. These also contain other information pertaining the the sgRNAs, such as the target gene name and accession number <br>
 ./sgRNA_library_reference_files/CTERM-LIBRARY-TABLE.tsv and ./sgRNA_library_reference_files/NTERM-LIBRARY-TABLE.tsv <br>
