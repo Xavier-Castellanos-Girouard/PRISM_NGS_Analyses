@@ -1,5 +1,14 @@
 # PRISM_NGS_Analyses
-Computational Pipeline for the PRISM paper
+Computational Pipeline for the PRISM paper. <br>
+<br>
+The design of this pipeline is significantly inspired by scripts originally written by Masih Saber. <br>
+<br>
+Two analyses are performed: 1) counting sgRNAs (using MAGeCK) at different steps of the experimental pipeline, and 2) Determining the On-Target efficiency of the experimental pipeline using Nested PCR results. <br>
+
+## Executing the code ##
+The pipeline is designed such that there is one master script for each individual analysis: mageck.sh for sgRNA counting, and NestedPCR_MasterScript.sh for On-Target analyses. <br>
+These master scripts should be executed on a command line from the scripts directory. <br> 
+See the dependencies for the scripts in the README section below. <br>
 
 ## References ##
 
