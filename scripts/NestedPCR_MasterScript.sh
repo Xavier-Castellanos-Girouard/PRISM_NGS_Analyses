@@ -20,12 +20,6 @@
 
 ########## Initiate directories ##########
 
-# Designate main directory. This should normally be the directory in which 
-# "MasterScript.sh" is found. 
-# main_dir="/home/xavier/Desktop/Mammalian_CRISPR/PRISM_Nested_PCR/Xaviers_Pipeline/"
-
-# Go to main_dir
-#cd $main_dir
 
 ##### Directories for N-terminal analysis #####
 
@@ -124,7 +118,9 @@ samtools view -bS ../results/Cterm/Bowtie2_Mapping/Cterm_bowtie2_mapped.sam | sa
 python3.10 ./subscripts/clean_Bowtie_alignments.py ../results/Nterm/Bowtie2_Mapping/Nterm_bowtie2_mapped_sorted.bam Nterm
 
 ## Find the reads that are on-target with sgRNA library
-python3.10 ./subscripts/check_on_target.py ../results/Nterm/results/Nterm_mapped_clean.csv ../data/sgRNA_library/NTERM-LIBRARY-TABLE.tsv Nterm
+# Arg1 is the file containing cleaned alignments from the previous python scripts (clean_Bowtie_alignements.py) 
+# Arg2 is the path for the file containing the reference sgRNA library. Arg3 the the terminus of the sample.
+python3.10 ./subscripts/check_on_target.py ../results/Nterm/results/Nterm_mapped_clean.csv ../data/sgRNA_library_reference_files/NTERM-LIBRARY-TABLE.tsv Nterm
 
 ## Compute the nucleotide shift compared to gene start site
 #python3.10 check_frame.py ./Nterm/results/Nterm_counted_onTarget.csv ../Human_Genome_hg38/hg38.gene_table.tsv Nterm
@@ -137,7 +133,9 @@ python3.10 ./subscripts/check_on_target.py ../results/Nterm/results/Nterm_mapped
 python3.10 ./subscripts/clean_Bowtie_alignments.py ../results/Cterm/Bowtie2_Mapping/Cterm_bowtie2_mapped_sorted.bam Cterm
 
 ## Find the reads that are on-target with sgRNA library
-python3.10 ./subscripts/check_on_target.py ../results/Cterm/results/Cterm_mapped_clean.csv ../data/CTERM-LIBRARY-TABLE.tsv Cterm
+# Arg1 is the file containing cleaned alignments from the previous python scripts (clean_Bowtie_alignements.py) 
+# Arg2 is the path for the file containing the reference sgRNA library. Arg3 the the terminus of the sample.
+python3.10 ./subscripts/check_on_target.py ../results/Cterm/results/Cterm_mapped_clean.csv ../data/sgRNA_library_reference_files/CTERM-LIBRARY-TABLE.tsv Cterm
 
 ## Compute the nucleotide shift compared to gene start site
 #python3.10 check_frame.py ./Cterm/results/Cterm_counted_onTarget.csv ../Human_Genome_hg38/hg38.gene_table.tsv Cterm
