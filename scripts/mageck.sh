@@ -10,6 +10,9 @@
 ## Change directory to upper-most directory of the GitHub repo.
 cd ~/Desktop/Mammalian_CRISPR/PRISM_NGS_Analysis/
 
+## Make the directory for MAGECK output
+mkdir ./results/MAGECK_Ouput/
+
 ## Make an array containing info on the NGS samples.
 # Each line: sample_name, lib_type, sub_directory, sample_id
 samples=(
