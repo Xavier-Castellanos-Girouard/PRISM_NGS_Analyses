@@ -14,7 +14,7 @@ The pipeline is designed such that there is one master script for each individua
   - Clone the github repository.
   - Install MAGeCK v.0.5.9.4
   - Fetch raw NGS data (see data/README.md for instructions).
-  - Modify the first line mageck.sh script; change the directory for that of the repo on your machine.
+  - Modify the first line mageck.sh script; change the directory for that of the directory on your machine.
   - Execute mageck.sh from the PRISM_NGS_Analyses directory.
 2. **Checklist for Nested PCR analyses**:
     - Clone the github repository (if not already done).
