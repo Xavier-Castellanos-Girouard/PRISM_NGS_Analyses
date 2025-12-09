@@ -17,11 +17,11 @@ The pipeline is designed such that there is one master script for each individua
   - Modify the first line mageck.sh script; change the directory for that of the directory on your machine.
   - Execute mageck.sh from the PRISM_NGS_Analyses directory.
 2. **Checklist for Nested PCR analyses**:
-    - Clone the github repository (if not already done).
-    - Install the dependencies (see README section below).
-    - Fetch raw NGS data (see data/README.md for instructions).
-    - Download genome build indexes for Bowtie2 alignements (see data/README.md for instructions).
-    - Execute NestedPCR_MasterScript.sh from the scripts/ directory.
+  - Clone the github repository (if not already done).
+  - Install the dependencies (see README section below).
+  - Fetch raw NGS data (see data/README.md for instructions).
+  - Download genome build indexes for Bowtie2 alignements (see data/README.md for instructions).
+  - Execute NestedPCR_MasterScript.sh from the scripts/ directory.
 <br>
 Further information on the input data and the individual scripts are found in their respective README files. <br>
 
