@@ -32,6 +32,8 @@ Further information on the input data and the individual scripts are found in th
 - Samtools version 1.9
 - Bowtie2 version 2.3.5.1
 - Python version 3.10
+  - pysam 0.23.3
+  - seaborn 0.13.2
   - pandas 2.2.3
   - numpy 2.2.4
   - tqdm 4.67.1
