@@ -1,4 +1,4 @@
-PRISM Downstream NGS Analysis & Reporting Pipeline
+## PRISM Downstream NGS Analysis & Reporting Pipeline
 
 This directory contains the downstream Python analyses of the Nested PCR data.
 
