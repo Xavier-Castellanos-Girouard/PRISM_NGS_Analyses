@@ -39,7 +39,7 @@ samples=(
 for entry in "${samples[@]}"; do
     read name lib subdir s_number <<< "$entry"
     mageck count \
-        -l "./data/sgRNA_library_reference_files/${lib}_lib.csv" \
+        -l "../common_data/sgRNA_library_reference_files/${lib}_lib.csv" \
         --fastq "./data/DSP1645/HGKNVAFX5/fastq/Sample_${subdir}/${subdir}_${s_number}_R1_001.fastq.gz" \
         -n "./results/MAGECK_Output/Output_${name}"
 done

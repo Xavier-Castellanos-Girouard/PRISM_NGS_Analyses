@@ -5,7 +5,7 @@ The design of this pipeline is significantly inspired by scripts originally writ
 <br>
 Two analyses are performed: <br>
 1. Counting sgRNAs (using MAGeCK) at different steps of the experimental pipeline.
-2. Determining the On-Target efficiency of the experimental pipeline using Nested PCR results.
+2. Determining the On-Target precision of the experimental pipeline using Nested PCR results.
 
 ## Executing the code ##
 The pipeline is designed such that there is one master script for each individual analysis: **mageck.sh** for sgRNA counting, and **NestedPCR_MasterScript.sh** for On-Target analyses. <br>
@@ -13,15 +13,15 @@ The pipeline is designed such that there is one master script for each individua
 1. **Checklist for counting sgRNAs**:
   - Clone the github repository.
   - Install MAGeCK v.0.5.9.4
-  - Fetch raw NGS data (see data/README.md for instructions).
+  - Fetch raw NGS data (see Read_Counting/data/README.md for instructions).
   - Modify the first line mageck.sh script; change the directory for that of the directory on your machine.
   - Execute mageck.sh from the PRISM_NGS_Analyses directory.
 2. **Checklist for Nested PCR analyses**:
   - Clone the github repository (if not already done).
   - Install the dependencies (see README section below).
-  - Fetch raw NGS data (see data/README.md for instructions).
-  - Download genome build indexes for Bowtie2 alignements (see data/README.md for instructions).
-  - Execute NestedPCR_MasterScript.sh from the scripts/ directory.
+  - Fetch raw NGS data (see PRISM_Nested_PCR/data/README.md for instructions).
+  - Download genome build indexes for Bowtie2 alignements (see PRISM_Nested_PCR/Human_Genome_hg38/data/README.md for instructions).
+  - Execute NestedPCR_MasterScript.sh from the PRISM_Nested_PCR/HPC_scripts/ directory.
 <br>
 Further information on the input data and the individual scripts are found in their respective README files. <br>
 
@@ -32,6 +32,8 @@ Further information on the input data and the individual scripts are found in th
 - Samtools version 1.9
 - Bowtie2 version 2.3.5.1
 - Python version 3.10
+  - pysam 0.23.3
+  - seaborn 0.13.2
   - pandas 2.2.3
   - numpy 2.2.4
   - tqdm 4.67.1
