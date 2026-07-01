@@ -6,7 +6,7 @@ These scripts parse genomic alignments to identify on-target integration events,
 
 ## Executing the scripts
 
-### clean_Bowtie_alignments.py
+### Step 1: clean_Bowtie_alignments.py
 <br>
 This script parses a position-sorted BAM file (Nterm_mapped_clean.csv or Cterm_mapped_clean.csv) using pysam. <br>
 It filters out unmapped or quality-failed reads, computes exact 5' and 3' genomic mapping endpoints based on strand orientation, and categorizes each alignment status (proper_pairs, forward_only, or reverse_only). <br>
@@ -16,7 +16,7 @@ Example: python3 clean_Bowtie_alignments.py Nterm_sorted.bam Nterm <br>
 <br>
 Output: Generates a structured file named _mapped_clean.csv inside the ../results/ directory.
 
-### check_on_target.py
+### Step 2: check_on_target.py
 <br>
 This script validates whether integrations occurred at intended target sites. It calculates the expected Cas9 cut site (3 bp upstream of the PAM) from an sgRNA library table and matches it to read positions using an asymmetric nearest-neighbor merge (a strict ±50 bp tolerance for junction-defining forward reads, and a broader ±1000 bp window for sheared reverse reads). It further computes precise nucleotide/amino acid shifts relative to coding sequences (CDS) to evaluate frame preservation. <br>
 <br>
@@ -25,7 +25,7 @@ Example: python3 check_on_target.py ../Nterm/Nterm_mapped_clean.csv ../../common
 Output: Generates a table named [Terminus]_annotated_onTarget.csv inside ../results/.
 <br>
 
-### generate_report.py
+### Step 3: generate_report.py
 <br>
 This script uses the on-target CSV to compile statistics and graphs. It extracts a list of all successfully tagged genes and makes two graphs: a pie chart on correct donor insertion and a histogram of the distribution of amino acid gains or losses across integrants that are in-frame. <br>
 <br>
