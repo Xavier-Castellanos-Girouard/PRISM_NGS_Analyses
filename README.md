@@ -5,7 +5,7 @@ The design of this pipeline is significantly inspired by scripts originally writ
 <br>
 Two analyses are performed: <br>
 1. Counting sgRNAs (using MAGeCK) at different steps of the experimental pipeline.
-2. Determining the On-Target efficiency of the experimental pipeline using Nested PCR results.
+2. Determining the On-Target precision of the experimental pipeline using Nested PCR results.
 
 ## Executing the code ##
 The pipeline is designed such that there is one master script for each individual analysis: **mageck.sh** for sgRNA counting, and **NestedPCR_MasterScript.sh** for On-Target analyses. <br>
