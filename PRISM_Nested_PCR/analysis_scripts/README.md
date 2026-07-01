@@ -24,6 +24,7 @@ python3 check_on_target.py <clean_alignments_csv> <sgRNA_library_tsv> <gene_tabl
 Example: python3 check_on_target.py ../Nterm/Nterm_mapped_clean.csv ../../common_data/NTERM-LIBRARY-TABLE.tsv Human_Genome_hg38/hg38.gene_table.tsv Nterm <br>
 Output: Generates a table named [Terminus]_annotated_onTarget.csv inside ../results/.
 <br>
+
 ### generate_report.py
 <br>
 This script uses the on-target CSV to compile statistics and graphs. It extracts a list of all successfully tagged genes and makes two graphs: a pie chart on correct donor insertion and a histogram of the distribution of amino acid gains or losses across integrants that are in-frame. <br>
